@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>White Owl - 360 Vision to Success | Nightlife Marketing</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #f1f1f8;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    a {
+      color: #00ffd5;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #00a89e;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: 1.2px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      scroll-margin-top: 100px;
+    }
+
+    /* Header & Nav */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 70px;
+      background: rgba(13, 11, 24, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 1000;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      cursor: pointer;
+    }
+    .logo img {
+      height: 45px;
+      filter: drop-shadow(0 0 3px #00ffd5);
+    }
+    .logo span {
+      font-size: 1.4rem;
+      color: #00f3c4;
+      text-shadow: 0 0 6px #00ffd5;
+      font-weight: 700;
+      user-select: none;
+    }
+    nav a {
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      background: #00ffd5;
+      left: 0;
+      bottom: -6px;
+      transition: 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 70px;
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      color: #00f3c4;
+      text-shadow: 0 0 15px rgba(0,255,213,0.8);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(13,11,24,0.75), rgba(13,11,24,0.9));
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+      z-index: 10;
+      animation: fadeSlideDown 1.2s ease forwards;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    .hero-content h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+      letter-spacing: 4px;
+    }
+    .hero-content p {
+      font-weight: 300;
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      color: #98ffec;
+    }
+    .cta-btn {
+      padding: 14px 45px;
+      background-color: #00ffd5;
+      border: none;
+      color: #080808;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-radius: 35px;
+      cursor: pointer;
+      box-shadow: 0 0 12px #00ffd5bb;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+    }
+    .cta-btn:hover {
+      background-color: #00a89e;
+      box-shadow: 0 0 20px #00a89ecc;
+    }
+
+    /* Sections Title */
+    section {
+      padding: 60px 15px;
+      position: relative;
+    }
+    section h2 {
+      font-size: 2.8rem;
+      color: #00ffde;
+      text-align: center;
+      margin-bottom: 25px;
+      text-shadow: 0 0 8px #00bfa6;
+    }
+    .section-description {
+      max-width: 900px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: #b8fff6cc;
+      text-align: center;
+    }
+
+    /* Expertise Grid */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .expertise-item {
+      background: #151422dd;
+      padding: 20px 25px;
+      border-radius: 14px;
+      box-shadow: 0 0 15px #00ffd522;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .expertise-item:hover {
+      box-shadow: 0 0 30px #00ffd5cc;
+      transform: translateY(-10px);
+    }
+    .expertise-item h3 {
+      color: #00f3c4;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .expertise-item p {
+      font-weight: 300;
+      line-height: 1.4;
+      font-size: 1rem;
+      color: #aaffffcc;
+    }
+
+    /* Influencer & UGC Section */
+    .influencer-section {
+      background: #12101fcc;
+      border-radius: 14px;
+      max-width: 1150px;
+      padding: 30px 45px;
+      margin: 30px auto;
+      box-shadow: 0 0 30px #00ffd5cc;
+      color: #adfff9;
+      line-height: 1.5;
+      font-weight: 300;
+      font-size: 1.05rem;
+    }
+    .influencer-section h3 {
+      color: #00e2c2;
+      margin-bottom: 15px;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .influencer-section ul {
+      list-style: disc inside;
+      margin-left: 10px;
+    }
+    .influencer-section ul li {
+      margin-bottom: 10px;
+      font-weight: 300;
+      color: #b3f7f1cc;
+      font-size: 1rem;
+    }
+
+    /* Brands Section */
+    .brands-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 35px;
+      justify-content: center;
+      align-items: center;
+    }
+    .brand-logo {
+      flex: 0 0 130px;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+      filter: drop-shadow(0 0 8px #00ffd5cc);
+    }
+    .brand-logo:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 18px #00b2a7dd);
+    }
+    .brand-logo img {
+      width: 100%;
+      display: block;
+      object-fit: contain;
+      background: #0d0b17;
+      padding: 10px;
+    }
+
+    /* Government Special Section */
+    .gov-section {
+      background: linear-gradient(135deg, #014d4e, #002e2f);
+      padding: 50px 25px;
+      max-width: 1000px;
+      margin: 70px auto 100px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 55px #00e6d3cc;
+      color: #cffefa;
+      text-align: center;
+      font-weight: 300;
+      line-height: 1.6;
+      position: relative;
+    }
+    .gov-section h2 {
+      color: #00fff9;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      text-shadow: 0 0 18px #00fff9cc;
+    }
+    .gov-section p {
+      max-width: 780px;
+      margin: 20px auto 40px;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+    .gov-gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .gov-gallery img {
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 0 32px #00fff9cc;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .gov-gallery img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 38px #00d8c9dd;
+    }
+
+    /* Team Section */
+    .team-section {
+      max-width: 1020px;
+      margin: 0 auto 100px;
+      padding: 0 15px;
+      display: flex;
+      justify-content: center;
+      gap: 45px;
+      flex-wrap: wrap;
+      text-align: center;
+      color: #b8fffb;
+    }
+    .team-card {
+      background: #12101fdd;
+      border-radius: 25px;
+      box-shadow: 0 0 30px #00ffd5cc;
+      padding: 30px 20px;
+      max-width: 280px;
+      transition: transform 0.35s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-15px);
+    }
+    .team-card img {
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #00ffd5cc;
+    }
+    .team-card h3 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #00e2c2;
+      margin-bottom: 6px;
+    }
+    .team-card p {
+      font-weight: 300;
+      font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0a0a13;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.95rem;
+      color: #499386cc;
+      font-weight: 300;
+      user-select: none;
+    }
+
+    /* Animations */
+    @keyframes fadeSlideDown {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll triggered - initial */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .scroll-reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .expertise-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .team-section {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .expertise-grid {
+        grid-template-columns: 1fr;
+      }
+      .brands-section {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo" tabindex="0" role="img" aria-label="White Owl Logo and Brand">
+      <img src="https://i.imgur.com/hGJ8gZL.png" alt="White Owl Logo" />
+      <span>WHITE OWL</span>
+    </div>
+    <nav aria-label="Primary navigation">
+      <a href="#expertise">Expertise</a>
+      <a href="#influencer">Influencers</a>
+      <a href="#brands">Collaborators</a>
+      <a href="#gov-project">Gov Project</a>
+      <a href="#team">Founders</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" role="banner" aria-label="Nightlife party banner with white owl branding">
+    <div class="hero-content" tabindex="0">
+      <h1>360 Vision to Success</h1>
+      <p>Leading Nightlife & Digital Marketing Experts for Influencer & Event Promotion</p>
+      <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });" aria-label="Contact White Owl">Contact Us</button>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="scroll-reveal" tabindex="0" aria-label="Our digital marketing expertise">
+      <h2>Our Expertise</h2>
+      <p class="section-description">We empower nightlife brands with strategies in digital marketing, social media, influencer reach, VFX ads, and more.</p>
+      <div class="expertise-grid" role="list">
+        <article class="expertise-item" role="listitem">
+          <h3>Digital & Social Media Marketing</h3>
+          <p>Instagram, Facebook, Twitter, YouTube, LinkedIn marketing & posting.</p>
+        </article>
+        <article class="expertise-item" role="listitem">
+          <h3>Graphics & Content Writing</h3>
+          <p>Creative content and tailored graphics that spark engagement.</p>
+        </article>
+        <article class="expertise-item" role="listitem">
+          <h3>VFX & CGI Advertisements</h3>
+          <p>High-impact visual effects and immersive ad production.</p>
+        </article>
+        <article class="expertise-item" role="listitem">
+          <h3>Review Marketing</h3>
+          <p>Strategic review campaigns on Zomato, Swiggy, Amazon, Flipkart.</p>
+        </article>
+        <article class="expertise-item" role="listitem">
+          <h3>Paid Advertisement</h3>
+          <p>Instagram, Facebook & Google Ads management for max ROI.</p>
+        </article>
+        <article class="expertise-item" role="listitem">
+          <h3>In-House UGC Creators</h3>
+          <p>Exclusive user-generated content created by our talented internal team.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Influencer Marketing Section -->
+    <section id="influencer" class="influencer-section scroll-reveal" tabindex="0" aria-label="Influencer Marketing and UGC services">
+      <h2>Influencer Marketing & UGC Creators</h2>
+      <p>We collaborate with 10,000+ nano, micro, and macro influencers to create exclusive content across high-engagement platforms.</p>
+      <ul>
+        <li>Exclusive content creation by trusted influencers</li>
+        <li>Influencer meet-ups for product launches and promotions</li>
+        <li>Posting on influencer social handles to increase reach</li>
+        <li>Full support from UGC creators ensuring exclusivity</li>
+      </ul>
+    </section>
+
+    <!-- Collaborator Brands Section -->
+    <section id="brands" class="scroll-reveal" tabindex="0" aria-label="Brand collaborators logos">
+      <h2>Our Collaborators</h2>
+      <div class="brands-section" role="list">
+        <div role="listitem" class="brand-logo" tabindex="0" aria-label="Collaborator Sisli logo">
+          <img src="https://i.imgur.com/ehLXmQo.jpg" alt="Sisli by The Liquor Fort Logo" />
+        </div>
+        <div role="listitem" class="brand-logo" tabindex="0" aria-label="Collaborator New York Street Logo">
+          <img src="https://i.imgur.com/ZxpboOj.png" alt="New York Street Logo" />
+        </div>
+        <div role="listitem" class="brand-logo" tabindex="0" aria-label="Collaborator Harlequin logo">
+          <img src="https://i.imgur.com/Qc9VqLA.jpg" alt="Harlequin Logo" />
+        </div>
+        <div role="listitem" class="brand-logo" tabindex="0" aria-label="Collaborator Diego logo">
+          <img src="https://i.imgur.com/T4lrbqD.jpg" alt="Diego Logo" />
+        </div>
+        <div role="listitem" class="brand-logo" tabindex="0" aria-label="Collaborator Scooby Doo logo">
+          <img src="https://i.imgur.com/FGRGFnI.png" alt="Scooby Doo Logo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Government Project Section -->
+    <section id="gov-project" class="gov-section scroll-reveal" tabindex="0" aria-label="Indian Institute of Creative Skills Government Project">
+      <h2>Indian Institute of Creative Skills (IICS) Project</h2>
+      <p>We proudly collaborated on the prestigious Government initiative "Indian Institute of Creative Skills," showcasing our commitment to skill development and influencer excellence.</p>
+      <p>Our work culminated in multiple awards including "Influencer of the Year – 2025" at the Delhi Creator’s Summit, highlighting the impact and talent cultivated through this project.</p>
+      <div class="gov-gallery" role="list">
+        <img src="https://i.imgur.com/oM7UKPa.jpg" alt="IICS Influencer of the Year Award Trophy" role="listitem" />
+        <img src="https://i.imgur.com/HZ9m2sC.jpg" alt="IICS Award Certificates and Flowers" role="listitem" />
+        <img src="https://i.imgur.com/tFO0XED.jpg" alt="IICS Award Presentation Setup" role="listitem" />
+      </div>
+    </section>
+
+    <!-- Events & Lifestyle Gallery -->
+    <section id="events-lifestyle" tabindex="0" aria-label="Events and nightlife lifestyle gallery" class="scroll-reveal">
+      <h2>Nightlife & Event Highlights</h2>
+      <div class="brands-section" style="max-width: 900px;">
+        <img class="brand-logo" src="https://i.imgur.com/2G0Fs5z.jpg" alt="DJ performance at White Owl event" />
+        <img class="brand-logo" src="https://i.imgur.com/A0KQvcU.jpg" alt="Crowd enjoying White Owl nightlife event" />
+        <img class="brand-logo" src="https://i.imgur.com/Y0n64DU.jpg" alt="Cocktail with Diego neon lighting" />
+      </div>
+    </section>
+
+    <!-- Founders Section -->
+    <section id="team" class="team-section scroll-reveal" tabindex="0" aria-label="White Owl Founders Team">
+      <h2>Meet Our Founders</h2>
+      <article class="team-card" role="group" aria-label="Megha Gupta - Founder">
+        <img src="https://i.imgur.com/4kYHlzQ.jpg" alt="Megha Gupta, Founder of White Owl" />
+        <h3>Megha Gupta</h3>
+        <p>Founder of White Owl. Visionary leader driving innovative nightlife marketing and influencer strategies.</p>
+      </article>
+      <article class="team-card" role="group" aria-label="Mansi Gupta - Co-Founder">
+        <img src="https://i.imgur.com/RHutJoy.jpg" alt="Mansi Gupta, Co-Founder of White Owl" />
+        <h3>Mansi Gupta</h3>
+        <p>Co-Founder of White Owl. Creative force behind the campaigns, specializing in digital engagement and branding.</p>
+      </article>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" tabindex="0" aria-label="Contact White Owl" style="text-align:center; margin-bottom: 80px;">
+      <h2 style="color:#00ffd5; margin-bottom: 20px;">Get In Touch</h2>
+      <p style="color:#b6ffeecc; font-weight: 300; font-size: 1.1rem; margin-bottom: 6px;">Phone: <a href="tel:+919667376370">9667376370</a></p>
+      <p style="color:#b6ffeecc; font-weight: 300; font-size: 1.1rem; margin-bottom: 6px;">Instagram: <a href="https://instagram.com/whiteowlofficials" target="_blank" rel="noopener">@whiteowlofficials</a></p>
+      <p style="color:#b6ffeecc; font-weight: 300; font-size: 1.1rem;">Email: <a href="mailto:Whiteowlpr143@gmail.com">Whiteowlpr143@gmail.com</a></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 White Owl &bull; Nightlife Marketing Experts &bull; All Rights Reserved
+  </footer>
+
+  <script>
+    // Scroll reveal effect
+    const scrollElements = document.querySelectorAll('.scroll-reveal');
+
+    const elementInView = (el, dividend = 1) => {
+      const elementTop = el.getBoundingClientRect().top;
+      return (
+        elementTop <=
+        (window.innerHeight || document.documentElement.clientHeight) / dividend
+      );
+    };
+
+    const displayScrollElement = (element) => {
+      element.classList.add('active');
+    };
+
+    const hideScrollElement = (element) => {
+      element.classList.remove('active');
+    };
+
+    const handleScrollAnimation = () => {
+      scrollElements.forEach((el) => {
+        if (elementInView(el, 1.25)) {
+          displayScrollElement(el);
+        } else {
+          hideScrollElement(el);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", () => {
+      handleScrollAnimation();
+    });
+
+    // Initial load animation trigger
+    window.addEventListener("load", () => {
+      handleScrollAnimation();
+    });
+  </script>
+
+</body>
+</html>
